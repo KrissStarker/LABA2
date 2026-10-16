@@ -1,0 +1,56 @@
+### Пользователь
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "Иван",
+  "email": "ivan@example.com",
+  "role": "SENDER"
+}
+
+### Отправление
+POST http://localhost:8080/api/shipments
+Content-Type: application/json
+
+{
+  "senderId": 1,
+  "address": "ул. Ленина, 1",
+  "weight": 2.5,
+  "status": "CREATED"
+}
+
+### Маршрут
+POST http://localhost:8080/api/routes
+Content-Type: application/json
+
+{
+  "routeDate": "2026-10-16",
+  "maxWeight": 10,
+  "status": "PLANNED"
+}
+
+### Остановка
+POST http://localhost:8080/api/stops
+Content-Type: application/json
+
+{
+  "routeId": 1,
+  "address": "ул. Ленина, 1",
+  "sequenceNumber": 1
+}
+
+### Назначение
+POST http://localhost:8080/api/shipment-assignments
+Content-Type: application/json
+
+{
+  "shipmentId": 1,
+  "stopId": 1,
+  "status": "PENDING"
+}
+
+### Список отправлений
+GET http://localhost:8080/api/shipments
+
+### Маршрут с расчётом массы
+GET http://localhost:8080/api/routes/1
